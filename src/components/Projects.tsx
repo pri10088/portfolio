@@ -42,16 +42,21 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
+    <section className="min-h-screen flex items-center justify-center px-6 py-12">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 neon-text">Projects</h2>
           <div className="w-24 h-1 bg-neon mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Responsive Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
-            <div key={index} className="glass-card p-6 rounded-2xl card-hover group">
+            <div
+              key={index}
+              className="glass-card p-6 rounded-2xl card-hover group flex flex-col justify-between"
+            >
+              {/* Header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="text-neon">{project.icon}</div>
                 <div className="flex gap-2">
@@ -61,7 +66,7 @@ const Projects: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="View Project"
-                      className="p-2 glass-card rounded-lg hover:bg-neon/20 transition-all duration-300"
+                      className="p-2 glass-card rounded-lg hover:bg-neon/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon/50"
                     >
                       <ExternalLink size={16} />
                     </a>
@@ -71,21 +76,20 @@ const Projects: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="View Code on GitHub"
-                    className="p-2 glass-card rounded-lg hover:bg-neon/20 transition-all duration-300"
+                    className="p-2 glass-card rounded-lg hover:bg-neon/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon/50"
                   >
                     <Github size={16} />
                   </a>
                 </div>
               </div>
 
+              {/* Title & Description */}
               <h3 className="text-xl font-semibold mb-2 text-neon group-hover:neon-text transition-all duration-300">
                 {project.title}
               </h3>
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed">{project.description}</p>
 
-              <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                {project.description}
-              </p>
-
+              {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, techIndex) => (
                   <span
@@ -97,7 +101,8 @@ const Projects: React.FC = () => {
                 ))}
               </div>
 
-              <div className="flex items-center justify-between">
+              {/* Footer (Status & Indicator) */}
+              <div className="flex items-center justify-between mt-auto">
                 <span
                   className={`px-3 py-1 text-xs rounded-full font-medium ${
                     project.status === 'Completed'
@@ -107,7 +112,7 @@ const Projects: React.FC = () => {
                 >
                   {project.status}
                 </span>
-                <div className="w-2 h-2 bg-neon rounded-full pulse-glow"></div>
+                <div className="w-2 h-2 bg-neon rounded-full animate-pulse"></div>
               </div>
             </div>
           ))}
