@@ -8,20 +8,22 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 relative">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-3xl lg:max-w-4xl mx-auto text-center px-4">
         
-        {/* Main heading */}
+        {/* Main Heading */}
         <div className="mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-snug">
             <span className="block text-white">Hey, I'm</span>
-            <span className="block text-neon neon-text">Shanmuga Priya AR</span>
+            <span className="block text-neon neon-text break-words">Shanmuga Priya AR</span>
           </h1>
-          <div className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+
+          {/* Subtext */}
+          <div className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 max-w-[90%] mx-auto">
             <p className="typing-animation">
               Sketchbook in one hand, keyboard in the other.
             </p>
           </div>
-          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-8 max-w-[90%] mx-auto">
             I build, design, market, and sometimes just vibe.
           </p>
         </div>
@@ -61,13 +63,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </button>
         </div>
 
-        {/* Floating elements - Hide on small screens */}
-        <div className="hidden lg:block absolute top-20 left-20 float-animation">
-          <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center">
+        {/* Floating Elements - Only on XL Screens */}
+        <div className="hidden xl:block absolute top-20 left-20 float-animation">
+          <div className="w-14 h-14 glass-card rounded-full flex items-center justify-center">
             <Code size={24} className="text-neon" />
           </div>
         </div>
-        <div className="hidden lg:block absolute bottom-20 right-20 float-animation" style={{ animationDelay: '2s' }}>
+        <div className="hidden xl:block absolute bottom-20 right-20 float-animation" style={{ animationDelay: '2s' }}>
           <div className="w-12 h-12 glass-card rounded-full flex items-center justify-center">
             <Palette size={20} className="text-neon" />
           </div>
